@@ -1,21 +1,22 @@
 import React from 'react'
-import { Router, Link } from '@reach/router'
+import { Router } from '@reach/router'
 
-import Counter from './components/Counter'
-import About from './views/About'
 import Home from './views/Home'
+import Product from './views/Product'
+import Header from './components/Header'
+import Cart from './components/Cart'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className='App'>
-      <Counter />
+    <div className='App font-mono leading-loose'>
+      <Header />
+      <Cart />
       <Router>
         <Home path='/' />
-        <About path='/about' />
+        <Product path='/product/:productSlug' />
       </Router>
-
-      <Link to='/'>Home</Link>
-      <Link to='/about'>About</Link>
+      <Footer />
     </div>
   )
 }

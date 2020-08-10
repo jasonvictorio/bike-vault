@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from '@reach/router'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../store'
+import { toggleCart } from '../store/ui'
 
 const Header = () => {
-  const active = false
-  const contact = 'contacts'
-  const address = 'address detials'
-  const links: Array<any> = []
-  const toggleMenubar = () => {}
-  const handleCartClick = () => {}
-  const closeMenubar = () => {}
+  const dispatch = useDispatch()
+  const [active, setActive] = useState(false)
+  const { address, links, contact } = useSelector(({ metadata }: RootState) => metadata)
+  const handleCartClick = () => dispatch(toggleCart())
+  const closeMenubar = () => setActive(false)
+  const toggleMenubar = () => setActive(!active)
 
   return (
     <header className='z-20 top-0 bg-white sticky w-full mb-6'>

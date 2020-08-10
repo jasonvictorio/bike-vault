@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-export default () => {
+const Header = () => {
   const active = false
   const contact = 'contacts'
   const address = 'address detials'
@@ -58,3 +58,5 @@ export default () => {
     </header>
   )
 }
+
+export default Header

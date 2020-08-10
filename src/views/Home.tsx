@@ -5,7 +5,9 @@ import { useSelector } from 'react-redux'
 import ProductCatalog from '../components/ProductCatalog'
 import { RootState } from '../store'
 
-export default (props: RouteComponentProps) => {
+const Home = (props: RouteComponentProps) => {
   const products = useSelector((state: RootState) => state.products)
   return <ProductCatalog products={products} />
 }
+
+export default Home

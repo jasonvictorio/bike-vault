@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-export default () => {
+const Footer = () => {
   const details: { links: Array<any>; contact: string; address: string } = { links: [], contact: '', address: '' }
 
   return (
@@ -39,3 +39,5 @@ export default () => {
     </footer>
   )
 }
+
+export default Footer

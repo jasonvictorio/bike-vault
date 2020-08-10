@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from '@reach/router'
 
-export default ({ product }: { product: any }) => {
+const Product = ({ product }: { product: any }) => {
   return (
     <Link to={`/product/${product.slug}`} className='leading-snug'>
       <div className='relative h-0' style={{ paddingBottom: '100%' }}>
@@ -24,3 +24,5 @@ export default ({ product }: { product: any }) => {
     </Link>
   )
 }
+
+export default Product

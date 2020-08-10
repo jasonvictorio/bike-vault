@@ -4,5 +4,5 @@ import { RouteComponentProps } from '@reach/router'
 import ProductCatalog from '../components/ProductCatalog'
 
 export default (props: RouteComponentProps) => {
-  return <ProductCatalog />
+  return <h1>ProductPage</h1>
 }

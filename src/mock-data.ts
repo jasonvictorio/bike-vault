@@ -1,5 +1,8 @@
-export const products = [
+import { Product } from './types'
+
+export const products: Product[] = [
   {
+    id: 1,
     image: 'marlin-5.jpg',
     name: 'Marlin 7',
     brand: 'Trek',
@@ -21,6 +24,7 @@ export const products = [
     ],
   },
   {
+    id: 2,
     image: 'marlin-6.jpg',
     name: 'Marlin 6',
     brand: 'Trek',
@@ -29,6 +33,7 @@ export const products = [
     price: 1200,
   },
   {
+    id: 3,
     image: 'marlin-7.jpg',
     name: 'Marlin 7',
     brand: 'Trek',
@@ -36,6 +41,7 @@ export const products = [
     price: 2200,
   },
   {
+    id: 4,
     image: 'marlin-6.jpg',
     name: 'Marlin 6',
     brand: 'Trek',
@@ -44,6 +50,7 @@ export const products = [
     price: 1200,
   },
   {
+    id: 5,
     image: 'marlin-7.jpg',
     name: 'Marlin 7',
     brand: 'Trek',
@@ -51,6 +58,7 @@ export const products = [
     price: 2200,
   },
   {
+    id: 6,
     image: 'marlin-6.jpg',
     name: 'Marlin 6',
     brand: 'Trek',
@@ -59,6 +67,7 @@ export const products = [
     price: 1200,
   },
   {
+    id: 7,
     image: 'marlin-5.jpg',
     name: 'Marlin 5',
     brand: 'Trek',
@@ -66,6 +75,7 @@ export const products = [
     price: 700,
   },
   {
+    id: 8,
     image: 'marlin-4.jpg',
     name: 'Marlin 4',
     brand: 'Trek',

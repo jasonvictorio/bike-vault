@@ -9,6 +9,7 @@ export interface Product {
   brand: string
   year: number
   price: number
+  image?: string
   discountedPrice?: number
   specifications?: Specification[]
 }

@@ -1,8 +1,8 @@
 import { Product } from './types'
+import { stringToSlug } from './utils'
 
-export const products: Product[] = [
+const rawProducts = [
   {
-    id: 1,
     image: 'marlin-5.jpg',
     name: 'Marlin 7',
     brand: 'Trek',
@@ -24,7 +24,6 @@ export const products: Product[] = [
     ],
   },
   {
-    id: 2,
     image: 'marlin-6.jpg',
     name: 'Marlin 6',
     brand: 'Trek',
@@ -33,7 +32,6 @@ export const products: Product[] = [
     price: 1200,
   },
   {
-    id: 3,
     image: 'marlin-7.jpg',
     name: 'Marlin 7',
     brand: 'Trek',
@@ -41,7 +39,6 @@ export const products: Product[] = [
     price: 2200,
   },
   {
-    id: 4,
     image: 'marlin-6.jpg',
     name: 'Marlin 6',
     brand: 'Trek',
@@ -50,7 +47,6 @@ export const products: Product[] = [
     price: 1200,
   },
   {
-    id: 5,
     image: 'marlin-7.jpg',
     name: 'Marlin 7',
     brand: 'Trek',
@@ -58,7 +54,6 @@ export const products: Product[] = [
     price: 2200,
   },
   {
-    id: 6,
     image: 'marlin-6.jpg',
     name: 'Marlin 6',
     brand: 'Trek',
@@ -67,7 +62,6 @@ export const products: Product[] = [
     price: 1200,
   },
   {
-    id: 7,
     image: 'marlin-5.jpg',
     name: 'Marlin 5',
     brand: 'Trek',
@@ -75,7 +69,6 @@ export const products: Product[] = [
     price: 700,
   },
   {
-    id: 8,
     image: 'marlin-4.jpg',
     name: 'Marlin 4',
     brand: 'Trek',
@@ -83,3 +76,11 @@ export const products: Product[] = [
     price: 500,
   },
 ]
+
+export const products: Product[] = rawProducts.map((product, index) => {
+  return {
+    ...product,
+    id: index,
+    slug: stringToSlug(`${product.brand} ${product.name} ${product.year}`),
+  }
+})

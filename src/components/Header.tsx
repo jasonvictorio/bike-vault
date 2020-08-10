@@ -16,7 +16,9 @@ const Header = () => {
     <header className='z-20 top-0 bg-white sticky w-full mb-6'>
       <div className='flex justify-between items-center container py-3 relative z-10'>
         <button onClick={toggleMenubar}>menu</button>
-        <h1 className='milonga font-black italic uppercase text-3xl leading-none'>Bike Vault</h1>
+        <Link to='/' className='milonga font-black italic uppercase text-3xl leading-none'>
+          Bike Vault
+        </Link>
         <button onClick={handleCartClick}>cart</button>
       </div>
       <div className={`h-px w-full ${active ? '' : 'bg-gray-400'}`}></div>

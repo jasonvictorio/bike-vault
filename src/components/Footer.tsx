@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from '@reach/router'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
 
 const Footer = () => {
-  const details: { links: Array<any>; contact: string; address: string } = { links: [], contact: '', address: '' }
+  const details = useSelector(({ metadata }: RootState) => metadata)
 
   return (
     <footer className='text-white bg-black py-8 mt-8'>

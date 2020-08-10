@@ -25,6 +25,7 @@ const Cart = () => {
             <div style={{ width: '100px' }} className='bg-garay-600 mr-3'>
               <div className='relative h-0 w-full' style={{ paddingBottom: '100%' }}>
                 <img
+                  alt={`${item.brand} ${item.name} ${item.year}`}
                   className='absolute top-0 left-0 object-contain w-full h-full'
                   src={`/assets/images/${item.image}`}
                 />

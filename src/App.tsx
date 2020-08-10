@@ -19,7 +19,7 @@ function App() {
     dispatch(setProducts(products))
     dispatch(addToCart(products[0]))
     dispatch(addToCart(products[1]))
-  }, [])
+  })
 
   return (
     <div className='App font-mono leading-loose'>

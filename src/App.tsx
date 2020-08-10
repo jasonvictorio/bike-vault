@@ -24,7 +24,7 @@ function App() {
       <Cart />
       <Router>
         <Home path='/' />
-        <Product path='/product/:productSlug' />
+        <Product path='/product/:slug' />
       </Router>
       <Footer />
     </div>

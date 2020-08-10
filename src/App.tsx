@@ -10,12 +10,15 @@ import Footer from './components/Footer'
 
 import { setProducts } from './store/products'
 import { products } from './mock-data'
+import { addToCart } from './store/cart'
 
 function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(setProducts(products))
+    dispatch(addToCart(products[0]))
+    dispatch(addToCart(products[1]))
   }, [])
 
   return (

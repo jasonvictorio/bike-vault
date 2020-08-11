@@ -12,7 +12,7 @@ const ProductCatalog = ({ products }: props) => {
     <div className='container'>
       <div className='grid grid-cols-2 gap-2'>
         {products.map(product => (
-          <ProductComponent product={product} />
+          <ProductComponent product={product} key={product.id} />
         ))}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { find, isNil } from 'lodash'
@@ -42,10 +42,10 @@ const Product = ({ slug }: RouteComponentProps<{ slug: string }>) => {
           <h1 className='text-2xl font-black mt-10 mb-6'>Specifications</h1>
           <dl className='leading-normal'>
             {product.specifications?.map(specification => (
-              <>
+              <Fragment key={specification.name}>
                 <dt className='text-gray-600 mb-2'>{specification.name}</dt>
                 <dd className='mb-6'>{specification.description}</dd>
-              </>
+              </Fragment>
             ))}
           </dl>
         </div>

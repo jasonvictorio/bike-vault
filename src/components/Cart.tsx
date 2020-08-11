@@ -21,7 +21,7 @@ const Cart = () => {
       </div>
       <ul className='overflow-auto'>
         {cart.map(({ product: item }) => (
-          <li className='flex items-center mb-4'>
+          <li className='flex items-center mb-4' key={item.id}>
             <div style={{ width: '100px' }} className='bg-garay-600 mr-3'>
               <div className='relative h-0 w-full' style={{ paddingBottom: '100%' }}>
                 <img

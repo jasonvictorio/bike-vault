@@ -31,11 +31,11 @@ const Header = () => {
           <ul>
             {links.map(link => {
               return (
-                <li className='mb-5'>
+                <li className='mb-5' key={link.name}>
                   <span className='font-black'>{link.name}</span>
                   <ul>
                     {link.links.map(link => (
-                      <li>
+                      <li key={link.route}>
                         <Link to={link.route} onClick={closeMenubar} className='block pl-2'>
                           {link.name}
                         </Link>

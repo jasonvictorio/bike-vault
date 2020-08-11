@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { CartItem, Product } from '../types'
-import { find, isNil, findIndex } from 'lodash'
+import { findIndex } from 'lodash'
 
 export const cartSlice = createSlice({
   name: 'cart',

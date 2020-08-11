@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { CartItem, Product } from '../types'
+import { find, isNil, findIndex } from 'lodash'
 
 export const cartSlice = createSlice({
   name: 'cart',
@@ -10,8 +11,15 @@ export const cartSlice = createSlice({
       return []
     },
     add: (state, { payload: product }: PayloadAction<Product>) => {
-      const newCartItem: CartItem = { id: product.id, quantity: 1, product }
-      return [...state, newCartItem]
+      // todo: find a way to use 'increment' action instead
+      const cartIndex = findIndex(state, ['id', product.id])
+      if (cartIndex === -1) {
+        const newCartItem: CartItem = { id: product.id, quantity: 1, product }
+        return [...state, newCartItem]
+      } else {
+        const existingCartItem = state[cartIndex]
+        existingCartItem.quantity += 1
+      }
     },
     delete: (state, { payload: cartItemId }: PayloadAction<number>) => {
       return state.filter(cartItem => cartItem.id !== cartItemId)

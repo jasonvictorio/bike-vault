@@ -15,9 +15,9 @@ const Footer = () => {
               <li className='mb-5'>
                 <span className='font-black'>{link.name}</span>
                 <ul>
-                  {link.links.map((link: any) => (
+                  {link.links.map(link => (
                     <li>
-                      <Link to='/' className='block'>
+                      <Link to={link.route} className='block'>
                         {link.name}
                       </Link>
                     </li>

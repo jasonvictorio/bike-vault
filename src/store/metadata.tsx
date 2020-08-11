@@ -7,18 +7,18 @@ export const metadata = {
     {
       name: 'Mountain',
       links: [
-        { name: 'All bikes', route: '/' },
-        { name: 'Hardtail', route: '/' },
-        { name: 'Full suspension', route: '/' },
+        { name: 'All bikes', route: '/bikes/mountain' },
+        { name: 'Hardtail', route: '/bikes/mountain/hardtail' },
+        { name: 'Full suspension', route: '/bikes/mountain/full-suspension' },
       ],
     },
     {
       name: 'Road',
       links: [
-        { name: 'All bikes', route: '/' },
-        { name: 'Race', route: '/' },
-        { name: 'Gravel', route: '/' },
-        { name: 'Touring', route: '/' },
+        { name: 'All bikes', route: '/bikes/road' },
+        { name: 'Race', route: '/bikes/road/race' },
+        { name: 'Gravel', route: '/bikes/road/gravel' },
+        { name: 'Touring', route: '/bikes/road/touring' },
       ],
     },
   ],

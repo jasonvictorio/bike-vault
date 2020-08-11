@@ -34,9 +34,9 @@ const Header = () => {
                 <li className='mb-5'>
                   <span className='font-black'>{link.name}</span>
                   <ul>
-                    {link.links.map((link: any) => (
+                    {link.links.map(link => (
                       <li>
-                        <Link to='/' onClick={closeMenubar} className='block pl-2'>
+                        <Link to={link.route} onClick={closeMenubar} className='block pl-2'>
                           {link.name}
                         </Link>
                       </li>

@@ -1,0 +1,13 @@
+[1]
+implement category view; filter bikes by category
+create checkout view
+display quantity in cart
+add increment, decrement button in cart component
+
+[2]
+sort bikes by price
+sort bikes by year
+
+[3]
+medium, large viewport design
+add bikes for other category

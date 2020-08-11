@@ -5,7 +5,7 @@ import { Product as ProductType } from '../types'
 
 const Product = ({ product }: { product: ProductType }) => {
   return (
-    <Link to={`/product/${product.slug}`} className='leading-snug'>
+    <Link to={`/bike/${product.slug}`} className='leading-snug'>
       <div className='relative h-0' style={{ paddingBottom: '100%' }}>
         <img
           className='absolute h-full object-contain top-0 w-full'

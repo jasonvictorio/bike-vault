@@ -3,7 +3,7 @@ import { stringToSlug } from './utils'
 
 const rawProducts = [
   {
-    image: 'marlin-5.jpg',
+    image: 'marlin-7.jpg',
     name: 'Marlin 7',
     brand: 'Trek',
     year: 2020,
@@ -22,36 +22,6 @@ const rawProducts = [
       },
       { name: 'Shifters', description: 'Shimano Altus M2010, 9 speed' },
     ],
-  },
-  {
-    image: 'marlin-6.jpg',
-    name: 'Marlin 6',
-    brand: 'Trek',
-    year: 2020,
-    discountedPrice: 1000,
-    price: 1200,
-  },
-  {
-    image: 'marlin-7.jpg',
-    name: 'Marlin 7',
-    brand: 'Trek',
-    year: 2020,
-    price: 2200,
-  },
-  {
-    image: 'marlin-6.jpg',
-    name: 'Marlin 6',
-    brand: 'Trek',
-    year: 2020,
-    discountedPrice: 1000,
-    price: 1200,
-  },
-  {
-    image: 'marlin-7.jpg',
-    name: 'Marlin 7',
-    brand: 'Trek',
-    year: 2020,
-    price: 2200,
   },
   {
     image: 'marlin-6.jpg',

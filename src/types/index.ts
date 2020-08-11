@@ -10,6 +10,7 @@ export interface Product {
   year: number
   price: number
   slug: string
+  categories: string[]
   image?: string
   discountedPrice?: number
   specifications?: Specification[]

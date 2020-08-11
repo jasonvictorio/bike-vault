@@ -9,7 +9,7 @@ export interface Product {
   brand: string
   year: number
   price: number
-  slug: string
+  slug: Slug
   categories: string[]
   image?: string
   discountedPrice?: number
@@ -21,3 +21,5 @@ export interface CartItem {
   product: Product
   quantity: number
 }
+
+export type Slug = string

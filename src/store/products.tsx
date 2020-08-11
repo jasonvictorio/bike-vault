@@ -19,4 +19,8 @@ export const selectDiscounted = ({ products }: RootState) => {
   return products.filter(product => product.discountedPrice ?? false)
 }
 
+export const selectByCategories = (categories: string[]) => ({ products }: RootState) => {
+  return products
+}
+
 export default productsSlice.reducer

@@ -9,7 +9,7 @@ const rawProducts = [
     year: 2020,
     price: 2200,
     discountedPrice: 1800,
-    categories: ['Mountain Bike', 'Hardtail'],
+    categories: ['Mountain', 'Hardtail'],
     specifications: [
       {
         name: 'Frame',
@@ -30,7 +30,7 @@ const rawProducts = [
     brand: 'Trek',
     year: 2020,
     discountedPrice: 1000,
-    categories: ['Mountain Bike', 'Hardtail'],
+    categories: ['Mountain', 'Hardtail'],
     price: 1200,
   },
   {
@@ -39,7 +39,7 @@ const rawProducts = [
     brand: 'Trek',
     year: 2020,
     price: 700,
-    categories: ['Mountain Bike', 'Hardtail'],
+    categories: ['Mountain', 'Hardtail'],
   },
   {
     image: 'marlin-4.jpg',
@@ -47,7 +47,7 @@ const rawProducts = [
     brand: 'Trek',
     year: 2020,
     price: 500,
-    categories: ['Mountain Bike', 'Hardtail'],
+    categories: ['Mountain', 'Hardtail'],
   },
   {
     image: 'emonda-slr-7.jpg',

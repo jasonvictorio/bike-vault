@@ -31,7 +31,7 @@ export const cartSlice = createSlice({
     },
     decrement: (state, { payload: cartItemId }: PayloadAction<number>) => {
       return state.map(cartItem =>
-        cartItem.id === cartItemId ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+        cartItem.id === cartItemId ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
       )
     },
   },

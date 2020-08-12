@@ -4,7 +4,7 @@ import { Link } from '@reach/router'
 
 import { RootState } from '../store'
 import { closeCart } from '../store/ui'
-import { incrementCart, decrementCart } from '../store/cart'
+import { incrementCart, decrementCart, deleteFromCart } from '../store/cart'
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -13,6 +13,7 @@ const Cart = () => {
   const handleClose = () => dispatch(closeCart())
   const handleIncremenCart = (cartId: number) => dispatch(incrementCart(cartId))
   const handleDecrementCart = (cartId: number) => dispatch(decrementCart(cartId))
+  const handleRemoveCart = (cartId: number) => dispatch(deleteFromCart(cartId))
 
   return (
     <div
@@ -62,6 +63,11 @@ const Cart = () => {
               <button onClick={() => handleDecrementCart(id)} className='border px-2'>
                 -
               </button>
+              <div>
+                <button onClick={() => handleRemoveCart(id)} className='mt-3 text-red-600 underline'>
+                  delete
+                </button>
+              </div>
             </div>
           </li>
         ))}

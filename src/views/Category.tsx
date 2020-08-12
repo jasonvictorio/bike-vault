@@ -18,7 +18,7 @@ const Category = ({ category, subCategory }: props) => {
   const categoryString = slugToString(category ?? '')
   const subCategoryString = slugToString(subCategory ?? '')
 
-  const products = useSelector(selectByCategories(compact([categoryString, subCategoryString])))
+  const products = useSelector(selectByCategories(compact([category, subCategory])))
   const title = isNil(subCategory) ? categoryString : subCategoryString
 
   return (

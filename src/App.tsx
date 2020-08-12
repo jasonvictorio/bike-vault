@@ -6,6 +6,7 @@ import Home from './views/Home'
 import Product from './views/Product'
 import Header from './components/Header'
 import Cart from './components/Cart'
+import Checkout from './views/Checkout'
 import Footer from './components/Footer'
 import Category from './views/Category'
 
@@ -32,6 +33,7 @@ function App() {
         <Category path='/bikes' />
         <Category path='/bikes/:category' />
         <Category path='/bikes/:category/:subCategory' />
+        <Checkout path='/checkout' />
       </Router>
       <Footer />
     </div>

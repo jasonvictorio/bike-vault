@@ -1,5 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from '@reach/router'
+
 import { RootState } from '../store'
 import { closeCart } from '../store/ui'
 
@@ -53,7 +55,9 @@ const Cart = () => {
       <div className='text-2xl flex justify-between border-black border-t border-b mb-4 mt-auto'>
         <span>Total:</span> <span>$2800</span>
       </div>
-      <button className='border w-full block border-black px-2 py-3 text-lg text-white bg-black'>checkout</button>
+      <Link to='/checkout' className='border w-full block border-black px-2 py-3 text-lg text-white bg-black'>
+        checkout
+      </Link>
     </div>
   )
 }

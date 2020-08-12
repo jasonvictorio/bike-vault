@@ -4,12 +4,15 @@ import { Link } from '@reach/router'
 
 import { RootState } from '../store'
 import { closeCart } from '../store/ui'
+import { incrementCart, decrementCart } from '../store/cart'
 
 const Cart = () => {
   const dispatch = useDispatch()
   const isCartOpen = useSelector(({ ui }: RootState) => ui.isCartOpen)
   const cart = useSelector(({ cart }: RootState) => cart)
   const handleClose = () => dispatch(closeCart())
+  const handleIncremenCart = (cartId: number) => dispatch(incrementCart(cartId))
+  const handleDecrementCart = (cartId: number) => dispatch(decrementCart(cartId))
 
   return (
     <div
@@ -22,7 +25,7 @@ const Cart = () => {
         <button onClick={handleClose}>close</button>
       </div>
       <ul className='overflow-auto'>
-        {cart.map(({ product: item }) => (
+        {cart.map(({ id, quantity, product: item }) => (
           <li className='flex items-center mb-4' key={item.id}>
             <div style={{ width: '100px' }} className='bg-garay-600 mr-3'>
               <div className='relative h-0 w-full' style={{ paddingBottom: '100%' }}>
@@ -48,6 +51,17 @@ const Cart = () => {
                   <div>${item.price}</div>
                 )}
               </div>
+            </div>
+            <div className='ml-auto'>
+              <div>
+                <span className='text-gray-600'>qty:</span> {quantity}
+              </div>
+              <button onClick={() => handleIncremenCart(id)} className='border px-2'>
+                +
+              </button>
+              <button onClick={() => handleDecrementCart(id)} className='border px-2'>
+                -
+              </button>
             </div>
           </li>
         ))}

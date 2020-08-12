@@ -49,6 +49,38 @@ const rawProducts = [
     price: 500,
     categories: ['Mountain Bike', 'Hardtail'],
   },
+  {
+    image: 'emonda-slr-7.jpg',
+    name: 'Emonda SLR 7',
+    brand: 'Trek',
+    year: 2021,
+    price: 10999,
+    categories: ['Road', 'Race'],
+  },
+  {
+    image: 'emonda-sl-7.jpg',
+    name: 'Emonda SL 7',
+    brand: 'Trek',
+    year: 2021,
+    price: 7999,
+    categories: ['Road', 'Race'],
+  },
+  {
+    image: 'checkpoint-alr-5.jpg',
+    name: 'Checkpoint ALR 5',
+    brand: 'Trek',
+    year: 2021,
+    price: 3299,
+    categories: ['Road', 'Race', 'Gravel'],
+  },
+  {
+    image: '520-disc.jpg',
+    name: '520 Disc',
+    brand: 'Trek',
+    year: 2021,
+    price: 1679,
+    categories: ['Road', 'Touring'],
+  },
 ]
 
 export const products: Product[] = rawProducts.map((product, index) => {

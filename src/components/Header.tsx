@@ -13,7 +13,7 @@ const Header = () => {
   const toggleMenubar = () => setActive(!active)
 
   return (
-    <header className='z-20 top-0 bg-white sticky w-full mb-6'>
+    <header className='z-20 top-0 bg-white w-full mb-6'>
       <div className='flex justify-between items-center container py-3 relative z-10'>
         <button onClick={toggleMenubar}>menu</button>
         <Link to='/' className='milonga font-black italic uppercase text-3xl leading-none'>

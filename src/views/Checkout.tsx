@@ -1,8 +1,30 @@
 import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 
+import { useFormField } from '../utils'
+
+/*
+1. shipping info
+2. billing info
+3. payment info
+
+4. confirmation
+  -show cart
+  -show step 1,2,3 summary
+*/
+
 const Checkout = (props: RouteComponentProps) => {
-  return <h1>Check it out</h1>
+  const firstname = useFormField({ name: 'firstname', required: true })
+  const lastname = useFormField({ name: 'lastname' })
+
+  return (
+    <div className='container'>
+      <h1 className='page-title'>Checkout</h1>
+      <form></form>
+      <input {...firstname} />
+      <input {...lastname} />
+    </div>
+  )
 }
 
 export default Checkout

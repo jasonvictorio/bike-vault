@@ -1,8 +1,9 @@
 [1]
-implement category view; filter bikes by category
+[done] implement category view; filter bikes by category
 create checkout view
 display quantity in cart
 add increment, decrement button in cart component
+pipe price to proper display format
 
 [2]
 sort bikes by price
@@ -11,3 +12,12 @@ sort bikes by year
 [3]
 medium, large viewport design
 add bikes for other category
+
+add 404 page
+display empty cart, empty category
+implement login
+create uesr page
+save cart to local storage
+hide cart on navigage
+hide menubar on navigate
+add hover effects

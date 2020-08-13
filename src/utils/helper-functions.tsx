@@ -1,4 +1,4 @@
-import { Slug } from './types'
+import { Slug } from '../types'
 
 export const stringToSlug = (string: string): Slug => {
   return string

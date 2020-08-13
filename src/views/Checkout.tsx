@@ -2,6 +2,7 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import { useFormField } from '../utils'
+import ShippingForm from '../components/ShippingForm'
 
 /*
 1. shipping info
@@ -20,9 +21,7 @@ const Checkout = (props: RouteComponentProps) => {
   return (
     <div className='container'>
       <h1 className='page-title'>Checkout</h1>
-      <form></form>
-      <input {...firstname} />
-      <input {...lastname} />
+      <ShippingForm />
     </div>
   )
 }

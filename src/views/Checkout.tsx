@@ -3,6 +3,7 @@ import { RouteComponentProps } from '@reach/router'
 
 import { useFormField } from '../utils'
 import ShippingForm from '../components/ShippingForm'
+import PaymentForm from '../components/PaymentForm'
 
 /*
 1. shipping info
@@ -19,21 +20,23 @@ const Checkout = (props: RouteComponentProps) => {
   const lastname = useFormField({ name: 'lastname' })
   const [currentStep, setCurrentStep] = useState<1 | 2>(1)
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+
   const handleClear = () => {}
   const handleNext1 = () => {
     setCurrentStep(2)
+    scrollToTop()
   }
   const handleBack = () => {
     setCurrentStep(1)
+    scrollToTop()
   }
   const handleNext2 = () => {}
 
   return (
     <div className='container'>
       <h1 className='page-title'>Checkout</h1>
-      <div className='mb-10'>
-        <ShippingForm />
-      </div>
+      <div className='mb-10'>{currentStep === 1 ? <ShippingForm /> : <PaymentForm />}</div>
       <div className='grid grid-cols-2 gap-4'>
         {currentStep === 1 ? (
           <>

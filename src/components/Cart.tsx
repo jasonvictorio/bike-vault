@@ -4,13 +4,14 @@ import { Link } from '@reach/router'
 
 import { RootState } from '../store'
 import { closeCart } from '../store/ui'
-import { incrementCart, decrementCart, deleteFromCart } from '../store/cart'
+import { incrementCart, decrementCart, deleteFromCart, selectTotal } from '../store/cart'
 import { numberToCurrency } from '../utils'
 
 const Cart = () => {
   const dispatch = useDispatch()
   const isCartOpen = useSelector(({ ui }: RootState) => ui.isCartOpen)
   const cart = useSelector(({ cart }: RootState) => cart)
+  const cartTotal = useSelector(selectTotal)
   const handleClose = () => dispatch(closeCart())
   const handleIncremenCart = (cartId: number) => dispatch(incrementCart(cartId))
   const handleDecrementCart = (cartId: number) => dispatch(decrementCart(cartId))
@@ -74,7 +75,7 @@ const Cart = () => {
         ))}
       </ul>
       <div className='text-2xl flex justify-between border-black border-t border-b mb-4 mt-auto'>
-        <span>Total:</span> <span>$2800</span>
+        <span>Total:</span> <span>{numberToCurrency(cartTotal)}</span>
       </div>
       <Link to='/checkout' className='border w-full block border-black px-2 py-3 text-lg text-white bg-black'>
         checkout

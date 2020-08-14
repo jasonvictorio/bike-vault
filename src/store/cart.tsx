@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { CartItem, Product } from '../types'
 import { findIndex } from 'lodash'
+import { RootState } from '.'
 
 export const cartSlice = createSlice({
   name: 'cart',
@@ -36,6 +37,12 @@ export const cartSlice = createSlice({
     },
   },
 })
+
+export const selectTotal = ({ cart }: RootState): number => {
+  return cart.reduce((total, { quantity, product }) => {
+    return total + quantity * (product.discountedPrice ?? product.price)
+  }, 0)
+}
 
 export const {
   add: addToCart,

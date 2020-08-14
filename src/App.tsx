@@ -9,6 +9,7 @@ import Cart from './components/Cart'
 import Checkout from './views/Checkout'
 import Footer from './components/Footer'
 import Category from './views/Category'
+import NotFound from './views/NotFound'
 
 import { setProducts } from './store/products'
 import { products } from './mock-data'
@@ -34,6 +35,8 @@ function App() {
         <Category path='/bikes/:category' />
         <Category path='/bikes/:category/:subCategory' />
         <Checkout path='/checkout' />
+
+        <NotFound default />
       </Router>
       <Footer />
     </div>

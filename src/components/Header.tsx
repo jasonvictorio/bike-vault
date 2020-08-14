@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from '@reach/router'
 import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../store'
-import { toggleCart } from '../store/ui'
+import { RootState, toggleCart } from '../store'
 
 const Header = () => {
   const dispatch = useDispatch()

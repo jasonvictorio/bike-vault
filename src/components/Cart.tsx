@@ -2,9 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from '@reach/router'
 
-import { RootState } from '../store'
-import { closeCart } from '../store/ui'
-import { incrementCart, decrementCart, deleteFromCart, selectTotal } from '../store/cart'
+import { RootState, closeCart, incrementCart, decrementCart, deleteFromCart, selectTotal } from '../store'
 import { numberToCurrency } from '../utils'
 
 const Cart = () => {

@@ -3,8 +3,7 @@ import { RouteComponentProps } from '@reach/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { find, isNil } from 'lodash'
 
-import { RootState } from '../store'
-import { addToCart } from '../store/cart'
+import { RootState, addToCart } from '../store'
 import { numberToCurrency } from '../utils'
 
 const Product = ({ slug }: RouteComponentProps<{ slug: string }>) => {

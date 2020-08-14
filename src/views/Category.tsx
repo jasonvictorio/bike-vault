@@ -5,7 +5,7 @@ import { isNil, compact } from 'lodash'
 
 import Breadcrumbs from '../components/Breadcrumbs'
 import ProductCatalog from '../components/ProductCatalog'
-import { selectByCategories } from '../store/products'
+import { selectByCategories } from '../store'
 import { slugToString } from '../utils'
 import { Slug } from '../types'
 

@@ -4,16 +4,15 @@ import { useDispatch } from 'react-redux'
 
 import Home from './views/Home'
 import Product from './views/Product'
-import Header from './components/Header'
-import Cart from './components/Cart'
 import Checkout from './views/Checkout'
-import Footer from './components/Footer'
 import Category from './views/Category'
 import NotFound from './views/NotFound'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Cart from './components/Cart'
 
-import { setProducts } from './store/products'
+import { setProducts, addToCart } from './store'
 import { products } from './mock-data'
-import { addToCart } from './store/cart'
 
 function App() {
   const dispatch = useDispatch()

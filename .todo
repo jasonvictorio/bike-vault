@@ -1,23 +1,24 @@
 [1]
 [done] implement category view; filter bikes by category
-create checkout view
-display quantity in cart
-add increment, decrement button in cart component
+[done] create checkout view
+[done] display quantity in cart
+[done] add increment, decrement button in cart component
 pipe price to proper display format
+implement checkout forms
+create user page
+implement login
+add 404 page
 
 [2]
 sort bikes by price
 sort bikes by year
+display empty cart, empty category
+add hover effects
 
 [3]
 medium, large viewport design
-add bikes for other category
-
-add 404 page
-display empty cart, empty category
-implement login
-create uesr page
+[done] add bikes for other category
 save cart to local storage
-hide cart on navigage
 hide menubar on navigate
-add hover effects
+hide cart on navigage
+try storybook.js

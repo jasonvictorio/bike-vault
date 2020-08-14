@@ -15,3 +15,8 @@ export const slugToString = (slug: Slug): string => {
   // todo: implement this
   return slug
 }
+
+const currencyFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 })
+export const numberToCurrency = (number: number): string => {
+  return currencyFormat.format(number)
+}

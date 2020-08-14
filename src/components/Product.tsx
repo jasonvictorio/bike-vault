@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from '@reach/router'
 
 import { Product as ProductType } from '../types'
+import { numberToCurrency } from '../utils'
 
 const Product = ({ product }: { product: ProductType }) => {
   return (
@@ -20,11 +21,11 @@ const Product = ({ product }: { product: ProductType }) => {
       <div className='mt-2'>
         {product.discountedPrice ? (
           <>
-            <div>${product.discountedPrice}</div>
-            <div className='line-through text-gray-600'>${product.price}</div>
+            <div>{numberToCurrency(product.discountedPrice)}</div>
+            <div className='line-through text-gray-600'>{numberToCurrency(product.price)}</div>
           </>
         ) : (
-          <div>${product.price}</div>
+          <div>{numberToCurrency(product.price)}</div>
         )}
       </div>
     </Link>

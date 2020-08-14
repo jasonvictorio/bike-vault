@@ -5,6 +5,7 @@ import { find, isNil } from 'lodash'
 
 import { RootState } from '../store'
 import { addToCart } from '../store/cart'
+import { numberToCurrency } from '../utils'
 
 const Product = ({ slug }: RouteComponentProps<{ slug: string }>) => {
   const dispatch = useDispatch()
@@ -29,11 +30,11 @@ const Product = ({ slug }: RouteComponentProps<{ slug: string }>) => {
           <div className='text-4xl leading-snug flex items-center py-5'>
             {product.discountedPrice ? (
               <>
-                <div className='mr-2'>${product.discountedPrice}</div>{' '}
-                <div className='text-2xl line-through text-gray-600'>${product.price}</div>
+                <div className='mr-2'>{numberToCurrency(product.discountedPrice)}</div>{' '}
+                <div className='text-2xl line-through text-gray-600'>{numberToCurrency(product.price)}</div>
               </>
             ) : (
-              <div>${product.price}</div>
+              <div>{numberToCurrency(product.price)}</div>
             )}
           </div>
           <button className='border border-black block w-full px-2 py-3 text-lg' onClick={handleAddToCart}>

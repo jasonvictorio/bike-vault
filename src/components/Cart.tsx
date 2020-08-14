@@ -5,6 +5,7 @@ import { Link } from '@reach/router'
 import { RootState } from '../store'
 import { closeCart } from '../store/ui'
 import { incrementCart, decrementCart, deleteFromCart } from '../store/cart'
+import { numberToCurrency } from '../utils'
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -45,11 +46,11 @@ const Cart = () => {
               <div className='flex'>
                 {item.discountedPrice ? (
                   <>
-                    <div className='mr-2'>${item.discountedPrice}</div>
-                    <div className='line-through text-gray-600'>${item.price}</div>
+                    <div className='mr-2'>{numberToCurrency(item.discountedPrice)}</div>
+                    <div className='line-through text-gray-600'>{numberToCurrency(item.price)}</div>
                   </>
                 ) : (
-                  <div>${item.price}</div>
+                  <div>{numberToCurrency(item.price)}</div>
                 )}
               </div>
             </div>

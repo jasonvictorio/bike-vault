@@ -16,12 +16,22 @@ import PaymentForm from '../components/PaymentForm'
 */
 
 const Checkout = (props: RouteComponentProps) => {
-  const firstname = useFormField({ name: 'firstname', required: true })
-  const lastname = useFormField({ name: 'lastname' })
+  const [shippingDetails, setShippingDetails] = useState({
+    firstname: '',
+    lastname: '',
+    phone: '',
+    email: '',
+    country: '',
+    city: '',
+    zipcode: '',
+    address: '',
+  })
+  const handleShippingFormSubmit = () => {
+    console.log('handleShippingFormSubmit')
+  }
+
   const [currentStep, setCurrentStep] = useState<1 | 2>(1)
-
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
-
   const handleClear = () => {}
   const handleNext1 = () => {
     setCurrentStep(2)
@@ -36,11 +46,15 @@ const Checkout = (props: RouteComponentProps) => {
   return (
     <div className='container'>
       <h1 className='page-title'>Checkout</h1>
-      <div className='mb-10'>{currentStep === 1 ? <ShippingForm /> : <PaymentForm />}</div>
+      <div className='mb-10'>
+        {currentStep === 1 ? <ShippingForm onSubmit={handleShippingFormSubmit} /> : <PaymentForm />}
+      </div>
       <div className='grid grid-cols-2 gap-4'>
         {currentStep === 1 ? (
           <>
-            <button className='border border-red-700 bg-red-700 block px-8 py-3 text-white'>Clear</button>
+            <button className='border border-red-700 bg-red-700 block px-8 py-3 text-white' onClick={handleClear}>
+              Clear
+            </button>
             <button className='border border-green-700 bg-green-700 block px-8 py-3 text-white' onClick={handleNext1}>
               Next
             </button>

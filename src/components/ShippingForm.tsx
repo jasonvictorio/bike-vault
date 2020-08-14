@@ -1,28 +1,54 @@
-import React from 'react'
+import React, { FormEvent } from 'react'
+import { useFormField } from '../utils'
 
-const ShippingForm = () => {
+interface props {
+  onSubmit: () => any
+}
+
+const ShippingForm = ({ onSubmit }: props) => {
+  const form = {
+    firstname: useFormField({ name: 'firstname', required: true }),
+    lastname: useFormField({ name: 'lastname', required: true }),
+    phone: useFormField({ name: 'phone', required: true }),
+    email: useFormField({ name: 'email', required: true }),
+    country: useFormField({ name: 'country', required: true }),
+    city: useFormField({ name: 'city', required: true }),
+    zipcode: useFormField({ name: 'zipcode', required: true }),
+    address: useFormField({ name: 'address', required: true }),
+  }
+
+  const clear = () => {}
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+
+    const _form = {}
+
+    onSubmit()
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h1 className='mb-8'>step 1 of 2 - Shipping details</h1>
       <div className='flex flex-col mb-5'>
         <label htmlFor='firstname'>Firstname</label>
-        <input name='firstname' type='text' className='px-2 border-b' placeholder='Juan' />
+        <input {...form.firstname} type='text' className='px-2 border-b' />
       </div>
       <div className='flex flex-col mb-5'>
         <label htmlFor='lastname'>Lastname</label>
-        <input name='lastname' type='text' className='px-2 border-b' placeholder='Dela Cruz' />
+        <input {...form.lastname} type='text' className='px-2 border-b' />
       </div>
       <div className='flex flex-col mb-5'>
         <label htmlFor='phone'>Phone</label>
-        <input name='phone' type='text' className='px-2 border-b' placeholder='+64 22 123 4567' />
+        <input {...form.phone} type='text' className='px-2 border-b' />
       </div>
       <div className='flex flex-col mb-5'>
         <label htmlFor='email'>Email</label>
-        <input name='email' type='text' className='px-2 border-b' placeholder='juandelacruz@mail.com' />
+        <input {...form.email} type='text' className='px-2 border-b' />
       </div>
       <div className='flex flex-col mb-5'>
         <label htmlFor='country'>Country</label>
-        <input name='country' type='text' className='px-2 border-b' placeholder='Philippines' list='countries' />
+        <input {...form.country} type='text' className='px-2 border-b' list='countries' />
         <datalist id='countries'>
           <option value='Philippines' />
           <option value='New Zealand' />
@@ -34,22 +60,20 @@ const ShippingForm = () => {
       <div className='grid grid-cols-2 gap-4'>
         <div className='flex flex-col mb-5'>
           <label htmlFor='city'>City</label>
-          <input name='city' type='text' className='px-2 border-b' placeholder='Tokyo' />
+          <input {...form.city} type='text' className='px-2 border-b' />
         </div>
         <div className='flex flex-col mb-5'>
           <label htmlFor='zipcode'>Zip code</label>
-          <input name='zipcode' type='text' className='px-2 border-b' placeholder='1116' />
+          <input {...form.zipcode} type='text' className='px-2 border-b' />
         </div>
       </div>
       <div className='flex flex-col mb-5'>
         <label htmlFor='address'>Address</label>
-        <input
-          name='address'
-          type='text'
-          className='px-2 border-b'
-          placeholder='#33 Maryland street, Auckland CBD, Auckland'
-        />
+        <input {...form.address} type='text' className='px-2 border-b' />
       </div>
+      <button type='submit' className='hidden'>
+        submit
+      </button>
     </form>
   )
 }

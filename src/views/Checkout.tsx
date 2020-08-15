@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import { useFormField } from '../utils'
-import ShippingForm from '../components/ShippingForm'
-import PaymentForm from '../components/PaymentForm'
+import { ShippingForm, PaymentForm } from '../components'
 
 /*
 1. shipping info

@@ -2,7 +2,7 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import { useSelector } from 'react-redux'
 
-import ProductCatalog from '../components/ProductCatalog'
+import { ProductCatalog } from '../components'
 import { RootState } from '../store'
 
 const Home = (props: RouteComponentProps) => {

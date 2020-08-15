@@ -2,11 +2,7 @@ import React, { useEffect } from 'react'
 import { Router } from '@reach/router'
 import { useDispatch } from 'react-redux'
 
-import Home from './views/Home'
-import Product from './views/Product'
-import Checkout from './views/Checkout'
-import Category from './views/Category'
-import NotFound from './views/NotFound'
+import { Home, Product, Checkout, Category, NotFound } from './views'
 import { Header, Footer, Cart } from './components'
 
 import { setProducts, addToCart } from './store'

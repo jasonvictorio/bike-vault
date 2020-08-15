@@ -3,11 +3,11 @@
 [done] create checkout view
 [done] display quantity in cart
 [done] add increment, decrement button in cart component
-pipe price to proper display format
+[done] pipe price to proper display format
 implement checkout forms
 create user page
 implement login
-add 404 page
+[done] add 404 page
 
 [2]
 sort bikes by price

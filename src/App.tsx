@@ -19,18 +19,20 @@ function App() {
 
   return (
     <div className='App font-mono leading-loose'>
-      <Header />
-      <Cart />
-      <Router>
-        <Home path='/' />
-        <Product path='/bike/:slug' />
-        <Category path='/bikes' />
-        <Category path='/bikes/:category' />
-        <Category path='/bikes/:category/:subCategory' />
-        <Checkout path='/checkout' />
+      <div className='container mx-auto'>
+        <Header />
+        <Cart />
+        <Router>
+          <Home path='/' />
+          <Product path='/bike/:slug' />
+          <Category path='/bikes' />
+          <Category path='/bikes/:category' />
+          <Category path='/bikes/:category/:subCategory' />
+          <Checkout path='/checkout' />
 
-        <NotFound default />
-      </Router>
+          <NotFound default />
+        </Router>
+      </div>
       <Footer />
     </div>
   )

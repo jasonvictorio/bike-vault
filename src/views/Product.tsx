@@ -18,7 +18,7 @@ const Product = ({ slug }: RouteComponentProps<{ slug: string }>) => {
   return (
     <div>
       {product && (
-        <div className='container'>
+        <div>
           <h1 className='text-3xl font-black leading-snug'>{product.name}</h1>
           <div className='text-gray-600'>
             {product.brand} {product.year}

@@ -43,7 +43,7 @@ const Checkout = (props: RouteComponentProps) => {
   const handleNext2 = () => {}
 
   return (
-    <div className='container'>
+    <div>
       <h1 className='page-title'>Checkout</h1>
       <div className='mb-10'>
         {currentStep === 1 ? <ShippingForm onSubmit={handleShippingFormSubmit} /> : <PaymentForm />}

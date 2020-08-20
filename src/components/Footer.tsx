@@ -8,11 +8,11 @@ const Footer = () => {
 
   return (
     <footer className='text-white bg-black py-8 mt-8'>
-      <div className='container'>
-        <ul>
+      <div className='container mx-auto'>
+        <ul className='sm:flex'>
           {details.links.map(link => {
             return (
-              <li className='mb-5' key={link.name}>
+              <li className='mb-5 sm:mr-10' key={link.name}>
                 <span className='font-black'>{link.name}</span>
                 <ul>
                   {link.links.map(link => (
@@ -28,7 +28,7 @@ const Footer = () => {
           })}
         </ul>
         <div className='flex flex-col flex-grow justify-end mt-10'>
-          <div>
+          <div className='mb-5'>
             <h1 className='font-black'>Contact</h1>
             <a href='tel:+22'>{details.contact}</a>
           </div>

@@ -22,7 +22,7 @@ const Category = ({ category, subCategory }: props) => {
 
   return (
     <>
-      <div className='container'>
+      <div>
         <h1 className='text-3xl font-black leading-snug'>{title}</h1>
         <Breadcrumbs category={category} subCategory={subCategory} />
       </div>

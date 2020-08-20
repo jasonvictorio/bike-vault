@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, FormEvent } from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import { useFormField, UseFormField } from '../utils'
@@ -36,18 +36,19 @@ const Checkout = (props: RouteComponentProps) => {
   const [currentStep, setCurrentStep] = useState<1 | 2>(1)
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
   const handleClear = () => {}
-  const handleNext1 = () => {
-    setCurrentStep(2)
-    scrollToTop()
-  }
   const handleBack = () => {
     setCurrentStep(1)
     scrollToTop()
   }
-  const handleNext2 = () => {}
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+    setCurrentStep(2)
+    scrollToTop()
+  }
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <h1 className='page-title'>Checkout</h1>
       <div className='mb-10'>
         {currentStep === 1 ? <ShippingForm {...shippingForm} /> : <PaymentForm {...paymentForm} />}
@@ -58,7 +59,7 @@ const Checkout = (props: RouteComponentProps) => {
             <button className='border border-red-700 bg-red-700 block px-8 py-3 text-white' onClick={handleClear}>
               Clear
             </button>
-            <button className='border border-green-700 bg-green-700 block px-8 py-3 text-white' onClick={handleNext1}>
+            <button className='border border-green-700 bg-green-700 block px-8 py-3 text-white' type='submit'>
               Next
             </button>
           </>
@@ -67,19 +68,19 @@ const Checkout = (props: RouteComponentProps) => {
             <button className='border border-black block px-8 py-3' onClick={handleBack}>
               Back
             </button>
-            <button className='border border-green-700 bg-green-700 block px-8 py-3 text-white' onClick={handleNext2}>
+            <button className='border border-green-700 bg-green-700 block px-8 py-3 text-white' type='submit'>
               Next
             </button>
           </>
         )}
       </div>
-    </div>
+    </form>
   )
 }
 
 function ShippingForm(form: { [key: string]: UseFormField }) {
   return (
-    <form>
+    <>
       <h1 className='mb-8'>step 1 of 2 - Shipping details</h1>
       <Input label='First name' {...form.firstname} />
       <Input label='Last name' {...form.lastname} />
@@ -91,24 +92,21 @@ function ShippingForm(form: { [key: string]: UseFormField }) {
         <Input label='Zip' {...form.zipcode} />
       </div>
       <Input label='Address' {...form.address} />
-      <button type='submit' className='hidden'>
-        submit
-      </button>
-    </form>
+    </>
   )
 }
 
 function PaymentForm(form: { [key: string]: UseFormField }) {
   return (
-    <form>
+    <>
       <h1 className='mb-8'>step 2 of 2 - Payment details</h1>
       <Input label="Cardholder's name" {...form.name} />
-      <Input label='Card number' {...form.number} />
+      <Input label='Card number' {...form.cardNumber} />
       <div className='grid grid-cols-2 gap-4'>
         <Input label='Valid until' {...form.valid} />
         <Input label='CVV' {...form.cvv} />
       </div>
-    </form>
+    </>
   )
 }
 

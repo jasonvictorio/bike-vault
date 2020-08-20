@@ -39,10 +39,18 @@ const Checkout = (props: RouteComponentProps) => {
     name: { label: "CardHolder's name", placeholder: 'Juan dela Cruz', ...useFormField({ required: true }) },
     cardNumber: { label: 'Card number', placeholder: '2222 22222 2222', ...useFormField({ required: true }) },
     valid: { label: 'Valid until', placeholder: '10/10', ...useFormField({ required: true }) },
-    cvv: { label: 'CVV', placeholder: '123', ...useFormField({ required: true }) },
+    cvv: {
+      label: 'CVV',
+      placeholder: '123',
+      type: 'number',
+      min: 0,
+      max: 999,
+      step: 1,
+      ...useFormField({ required: true }),
+    },
   }
 
-  const [currentStep, setCurrentStep] = useState<1 | 2>(1)
+  const [currentStep, setCurrentStep] = useState<1 | 2>(2)
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
   const handleBack = () => {
     setCurrentStep(1)

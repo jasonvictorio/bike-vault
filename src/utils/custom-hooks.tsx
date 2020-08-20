@@ -42,3 +42,5 @@ export function useFormField({
     valid,
   }
 }
+
+export type UseFormField = ReturnType<typeof useFormField>

@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react'
 import { RouteComponentProps } from '@reach/router'
+import { mapValues } from 'lodash'
 
 import { useFormField, UseFormField } from '../utils'
 import { Input } from '../components'
@@ -60,7 +61,7 @@ const Checkout = (props: RouteComponentProps) => {
     },
   }
 
-  const [currentStep, setCurrentStep] = useState<1 | 2>(2)
+  const [currentStep, setCurrentStep] = useState<1 | 2>(1)
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
   const handleBack = () => {
     setCurrentStep(1)
@@ -69,8 +70,15 @@ const Checkout = (props: RouteComponentProps) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    setCurrentStep(2)
     scrollToTop()
+    if (currentStep === 1) {
+      setCurrentStep(2)
+      return
+    }
+
+    const sForm = mapValues(shippingForm, 'value')
+    const pForm = mapValues(paymentForm, 'value')
+    console.log(sForm, pForm)
   }
 
   const handleClear = () => {

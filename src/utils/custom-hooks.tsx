@@ -1,20 +1,11 @@
 import { useState, ChangeEvent } from 'react'
 
 interface useFormFieldArgs {
-  name: string
   initialValue?: string
   required?: boolean
-  placeholder?: string
-  type?: 'text' | 'number' | 'email'
 }
 
-export function useFormField({
-  name,
-  initialValue = '',
-  required = false,
-  placeholder = name,
-  type = 'text',
-}: useFormFieldArgs) {
+export function useFormField({ initialValue = '', required = false }: useFormFieldArgs) {
   const [value, setValue] = useState(initialValue)
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [valid, setValid] = useState(required ? false : true)
@@ -31,14 +22,11 @@ export function useFormField({
   }
 
   return {
-    name,
     value,
     required,
     errorMessage,
     onChange,
     onBlur,
-    placeholder,
-    type,
     valid,
   }
 }

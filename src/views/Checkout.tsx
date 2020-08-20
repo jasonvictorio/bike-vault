@@ -19,7 +19,12 @@ const Checkout = (props: RouteComponentProps) => {
     firstname: { label: 'First name', placeholder: 'Juan', ...useFormField({ required: true }) },
     lastname: { label: 'Last name', placeholder: 'dela Cruz', ...useFormField({ required: true }) },
     phone: { label: 'Phone', placeholder: '(+64) 22 000 000', ...useFormField({ required: true }) },
-    email: { label: 'Email', placeholder: 'juandelacruz@mail.com', ...useFormField({ required: true }) },
+    email: {
+      label: 'Email',
+      placeholder: 'juandelacruz@mail.com',
+      type: 'email',
+      ...useFormField({ required: true }),
+    },
     country: { label: 'Country', placeholder: 'New Zealand', ...useFormField({ required: true }) },
     city: { label: 'City', placeholder: 'Auckland', ...useFormField({ required: true }) },
     zipcode: { label: 'Zipcode', placeholder: '1010', ...useFormField({ required: true }) },

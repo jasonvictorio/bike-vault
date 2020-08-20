@@ -13,11 +13,12 @@ type props = UseFormField & {
 
 const Input = ({ type = 'text', ...props }: props) => {
   const inputClassName = 'px-2 border-b focus:border-black'
-  const bar = pick(props, ['name', 'value', 'required', 'onChange', 'onBlur', 'placeholder', 'type', 'pattern'])
+  const bar = pick(props, ['value', 'required', 'onChange', 'onBlur', 'placeholder', 'pattern'])
   const foo = () => {
     switch (type) {
       case 'text':
-        return <input className={inputClassName} {...bar} />
+      case 'email':
+        return <input {...{ type, className: inputClassName }} {...bar} />
       default:
         return <></>
     }

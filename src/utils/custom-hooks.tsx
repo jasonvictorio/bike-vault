@@ -21,6 +21,10 @@ export function useFormField({ initialValue = '', required = false }: useFormFie
     setValid(validationMessage === '')
   }
 
+  const clear = () => {
+    setValue('')
+  }
+
   return {
     value,
     required,
@@ -28,6 +32,8 @@ export function useFormField({ initialValue = '', required = false }: useFormFie
     onChange,
     onBlur,
     valid,
+    clear,
+    setValue,
   }
 }
 

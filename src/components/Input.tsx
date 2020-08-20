@@ -1,27 +1,28 @@
 import React from 'react'
+import { pick } from 'lodash'
 
-interface props {
-  name: string
+import { UseFormField } from '../utils'
+
+type props = UseFormField & {
   label: string
-  placeholder?: string
-  type?: string
   className?: string
 }
 
-const Input = ({ name, label, placeholder = '', type = 'text', className }: props) => {
+const Input = (props: props) => {
   const inputClassName = 'px-2 border-b'
+  const bar = pick(props, ['name', 'value', 'required', 'onChange', 'onBlur', 'placeholder', 'type'])
   const foo = () => {
-    switch (type) {
+    switch (props.type) {
       case 'text':
-        return <input name={name} type='text' placeholder={placeholder} className={inputClassName} />
+        return <input className={inputClassName} {...bar} />
       default:
         return <></>
     }
   }
 
   return (
-    <div className={`flex flex-col mb-5 ${className}`}>
-      <label htmlFor={name}>{label}</label>
+    <div className={`flex flex-col mb-5 ${props.className}`}>
+      <label htmlFor={props.name}>{props.label}</label>
       {foo()}
     </div>
   )

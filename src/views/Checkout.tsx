@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { RouteComponentProps } from '@reach/router'
 
-import { useFormField } from '../utils'
-import { ShippingForm, PaymentForm } from '../components'
+import { useFormField, UseFormField } from '../utils'
+import { Input } from '../components'
 
 /*
 1. shipping info
@@ -15,18 +15,22 @@ import { ShippingForm, PaymentForm } from '../components'
 */
 
 const Checkout = (props: RouteComponentProps) => {
-  const [shippingDetails, setShippingDetails] = useState({
-    firstname: '',
-    lastname: '',
-    phone: '',
-    email: '',
-    country: '',
-    city: '',
-    zipcode: '',
-    address: '',
-  })
-  const handleShippingFormSubmit = () => {
-    console.log('handleShippingFormSubmit')
+  const shippingForm = {
+    firstname: useFormField({ name: 'firstname', placeholder: 'Juan', required: true }),
+    lastname: useFormField({ name: 'lastname', placeholder: 'dela Cruz', required: true }),
+    phone: useFormField({ name: 'phone', placeholder: '(+64) 22 000 0000', required: true }),
+    email: useFormField({ name: 'email', placeholder: 'juandelacruz@mail.com', required: true }),
+    country: useFormField({ name: 'country', placeholder: 'New Zealand', required: true }),
+    city: useFormField({ name: 'city', placeholder: 'Auckland', required: true }),
+    zipcode: useFormField({ name: 'zipcode', placeholder: '1010', required: true }),
+    address: useFormField({ name: 'address', placeholder: '24 Liverpool Street, Auckland CBD', required: true }),
+  }
+
+  const paymentForm = {
+    name: useFormField({ name: 'name', placeholder: 'Juan dela Cruz', required: true }),
+    cardNumber: useFormField({ name: 'cardNumber', placeholder: '2222222222', required: true }),
+    valid: useFormField({ name: 'valid', placeholder: '12/34', required: true }),
+    cvv: useFormField({ name: 'cvv', placeholder: '123', required: true }),
   }
 
   const [currentStep, setCurrentStep] = useState<1 | 2>(1)
@@ -46,7 +50,7 @@ const Checkout = (props: RouteComponentProps) => {
     <div>
       <h1 className='page-title'>Checkout</h1>
       <div className='mb-10'>
-        {currentStep === 1 ? <ShippingForm onSubmit={handleShippingFormSubmit} /> : <PaymentForm />}
+        {currentStep === 1 ? <ShippingForm {...shippingForm} /> : <PaymentForm {...paymentForm} />}
       </div>
       <div className='grid grid-cols-2 gap-4'>
         {currentStep === 1 ? (
@@ -70,6 +74,41 @@ const Checkout = (props: RouteComponentProps) => {
         )}
       </div>
     </div>
+  )
+}
+
+function ShippingForm(form: { [key: string]: UseFormField }) {
+  return (
+    <form>
+      <h1 className='mb-8'>step 1 of 2 - Shipping details</h1>
+      <Input label='First name' {...form.firstname} />
+      <Input label='Last name' {...form.lastname} />
+      <Input label='Phone' {...form.phone} />
+      <Input label='Email' {...form.email} />
+      <Input label='Country' {...form.country} />
+      <div className='grid grid-cols-2 gap-4'>
+        <Input label='City' {...form.city} />
+        <Input label='Zip' {...form.zipcode} />
+      </div>
+      <Input label='Address' {...form.address} />
+      <button type='submit' className='hidden'>
+        submit
+      </button>
+    </form>
+  )
+}
+
+function PaymentForm(form: { [key: string]: UseFormField }) {
+  return (
+    <form>
+      <h1 className='mb-8'>step 2 of 2 - Payment details</h1>
+      <Input label="Cardholder's name" {...form.name} />
+      <Input label='Card number' {...form.number} />
+      <div className='grid grid-cols-2 gap-4'>
+        <Input label='Valid until' {...form.valid} />
+        <Input label='CVV' {...form.cvv} />
+      </div>
+    </form>
   )
 }
 

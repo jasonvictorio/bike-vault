@@ -39,7 +39,6 @@ const Checkout = (props: RouteComponentProps) => {
 
   const [currentStep, setCurrentStep] = useState<1 | 2>(1)
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
-  const handleClear = () => {}
   const handleBack = () => {
     setCurrentStep(1)
     scrollToTop()
@@ -51,6 +50,17 @@ const Checkout = (props: RouteComponentProps) => {
     scrollToTop()
   }
 
+  const handleClear = () => {
+    let shippingFormKey: keyof typeof shippingForm
+    for (shippingFormKey in shippingForm) {
+      shippingForm[shippingFormKey].clear()
+    }
+    let paymentFormKey: keyof typeof paymentForm
+    for (paymentFormKey in paymentForm) {
+      paymentForm[paymentFormKey].clear()
+    }
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <h1 className='page-title'>Checkout</h1>
@@ -60,7 +70,11 @@ const Checkout = (props: RouteComponentProps) => {
       <div className='grid grid-cols-2 gap-4'>
         {currentStep === 1 ? (
           <>
-            <button className='border border-red-700 bg-red-700 block px-8 py-3 text-white' onClick={handleClear}>
+            <button
+              className='border border-red-700 bg-red-700 block px-8 py-3 text-white'
+              type='button'
+              onClick={handleClear}
+            >
               Clear
             </button>
             <button className='border border-green-700 bg-green-700 block px-8 py-3 text-white' type='submit'>
@@ -69,7 +83,7 @@ const Checkout = (props: RouteComponentProps) => {
           </>
         ) : (
           <>
-            <button className='border border-black block px-8 py-3' onClick={handleBack}>
+            <button className='border border-black block px-8 py-3' type='button' onClick={handleBack}>
               Back
             </button>
             <button className='border border-green-700 bg-green-700 block px-8 py-3 text-white' type='submit'>

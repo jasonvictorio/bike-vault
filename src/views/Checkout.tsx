@@ -37,8 +37,18 @@ const Checkout = (props: RouteComponentProps) => {
 
   const paymentForm = {
     name: { label: "CardHolder's name", placeholder: 'Juan dela Cruz', ...useFormField({ required: true }) },
-    cardNumber: { label: 'Card number', placeholder: '2222 22222 2222', ...useFormField({ required: true }) },
-    valid: { label: 'Valid until', placeholder: '10/10', ...useFormField({ required: true }) },
+    cardNumber: {
+      label: 'Card number',
+      placeholder: '2222 22222 2222',
+      pattern: '[0-9]{13,16}',
+      ...useFormField({ required: true }),
+    },
+    valid: {
+      label: 'Valid until',
+      placeholder: 'MM/YY',
+      pattern: '(0[1-9]|1[012])/[0-9]{2}',
+      ...useFormField({ required: true }),
+    },
     cvv: {
       label: 'CVV',
       placeholder: '123',

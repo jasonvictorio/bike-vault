@@ -9,7 +9,7 @@ type props = UseFormField & {
 }
 
 const Input = (props: props) => {
-  const inputClassName = 'px-2 border-b'
+  const inputClassName = 'px-2 border-b focus:border-black'
   const bar = pick(props, ['name', 'value', 'required', 'onChange', 'onBlur', 'placeholder', 'type'])
   const foo = () => {
     switch (props.type) {

@@ -6,13 +6,16 @@ import { UseFormField } from '../utils'
 type props = UseFormField & {
   label: string
   className?: string
+  placeholder?: string
+  pattern?: string
+  type?: string
 }
 
-const Input = (props: props) => {
+const Input = ({ type = 'text', ...props }: props) => {
   const inputClassName = 'px-2 border-b focus:border-black'
-  const bar = pick(props, ['name', 'value', 'required', 'onChange', 'onBlur', 'placeholder', 'type'])
+  const bar = pick(props, ['name', 'value', 'required', 'onChange', 'onBlur', 'placeholder', 'type', 'pattern'])
   const foo = () => {
-    switch (props.type) {
+    switch (type) {
       case 'text':
         return <input className={inputClassName} {...bar} />
       default:
@@ -21,10 +24,10 @@ const Input = (props: props) => {
   }
 
   return (
-    <div className={`flex flex-col mb-5 ${props.className}`}>
-      <label htmlFor={props.name}>{props.label}</label>
+    <label className={`flex flex-col mb-5 ${props.className}`}>
+      <span>{props.label}</span>
       {foo()}
-    </div>
+    </label>
   )
 }
 

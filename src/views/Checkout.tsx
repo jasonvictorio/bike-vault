@@ -16,21 +16,25 @@ import { Input } from '../components'
 
 const Checkout = (props: RouteComponentProps) => {
   const shippingForm = {
-    firstname: useFormField({ name: 'firstname', placeholder: 'Juan', required: true }),
-    lastname: useFormField({ name: 'lastname', placeholder: 'dela Cruz', required: true }),
-    phone: useFormField({ name: 'phone', placeholder: '(+64) 22 000 0000', required: true }),
-    email: useFormField({ name: 'email', placeholder: 'juandelacruz@mail.com', required: true }),
-    country: useFormField({ name: 'country', placeholder: 'New Zealand', required: true }),
-    city: useFormField({ name: 'city', placeholder: 'Auckland', required: true }),
-    zipcode: useFormField({ name: 'zipcode', placeholder: '1010', required: true }),
-    address: useFormField({ name: 'address', placeholder: '24 Liverpool Street, Auckland CBD', required: true }),
+    firstname: { label: 'First name', placeholder: 'Juan', ...useFormField({ required: true }) },
+    lastname: { label: 'Last name', placeholder: 'dela Cruz', ...useFormField({ required: true }) },
+    phone: { label: 'Phone', placeholder: '(+64) 22 000 000', ...useFormField({ required: true }) },
+    email: { label: 'Email', placeholder: 'juandelacruz@mail.com', ...useFormField({ required: true }) },
+    country: { label: 'Country', placeholder: 'New Zealand', ...useFormField({ required: true }) },
+    city: { label: 'City', placeholder: 'Auckland', ...useFormField({ required: true }) },
+    zipcode: { label: 'Zipcode', placeholder: '1010', ...useFormField({ required: true }) },
+    address: {
+      label: 'Address',
+      placeholder: '24 Liverland Street, Auckland CBD',
+      ...useFormField({ required: true }),
+    },
   }
 
   const paymentForm = {
-    name: useFormField({ name: 'name', placeholder: 'Juan dela Cruz', required: true }),
-    cardNumber: useFormField({ name: 'cardNumber', placeholder: '2222222222', required: true }),
-    valid: useFormField({ name: 'valid', placeholder: '12/34', required: true }),
-    cvv: useFormField({ name: 'cvv', placeholder: '123', required: true }),
+    name: { label: "CardHolder's name", placeholder: 'Juan dela Cruz', ...useFormField({ required: true }) },
+    cardNumber: { label: 'Card number', placeholder: '2222 22222 2222', ...useFormField({ required: true }) },
+    valid: { label: 'Valid until', placeholder: '10/10', ...useFormField({ required: true }) },
+    cvv: { label: 'CVV', placeholder: '123', ...useFormField({ required: true }) },
   }
 
   const [currentStep, setCurrentStep] = useState<1 | 2>(1)
@@ -78,33 +82,33 @@ const Checkout = (props: RouteComponentProps) => {
   )
 }
 
-function ShippingForm(form: { [key: string]: UseFormField }) {
+function ShippingForm(form: { [key: string]: UseFormField & { placeholder: string; label: string; type?: string } }) {
   return (
     <>
       <h1 className='mb-8'>step 1 of 2 - Shipping details</h1>
-      <Input label='First name' {...form.firstname} />
-      <Input label='Last name' {...form.lastname} />
-      <Input label='Phone' {...form.phone} />
-      <Input label='Email' {...form.email} />
-      <Input label='Country' {...form.country} />
+      <Input {...form.firstname} />
+      <Input {...form.lastname} />
+      <Input {...form.phone} />
+      <Input {...form.email} />
+      <Input {...form.country} />
       <div className='grid grid-cols-2 gap-4'>
-        <Input label='City' {...form.city} />
-        <Input label='Zip' {...form.zipcode} />
+        <Input {...form.city} />
+        <Input {...form.zipcode} />
       </div>
-      <Input label='Address' {...form.address} />
+      <Input {...form.address} />
     </>
   )
 }
 
-function PaymentForm(form: { [key: string]: UseFormField }) {
+function PaymentForm(form: { [key: string]: UseFormField & { placeholder: string; label: string; type?: string } }) {
   return (
     <>
       <h1 className='mb-8'>step 2 of 2 - Payment details</h1>
-      <Input label="Cardholder's name" {...form.name} />
-      <Input label='Card number' {...form.cardNumber} />
+      <Input {...form.name} />
+      <Input {...form.cardNumber} />
       <div className='grid grid-cols-2 gap-4'>
-        <Input label='Valid until' {...form.valid} />
-        <Input label='CVV' {...form.cvv} />
+        <Input {...form.valid} />
+        <Input {...form.cvv} />
       </div>
     </>
   )

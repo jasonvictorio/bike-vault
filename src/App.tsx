@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { Router } from '@reach/router'
+import { Router, globalHistory } from '@reach/router'
 import { useDispatch } from 'react-redux'
 
 import { Home, Product, Checkout, Category, NotFound } from './views'
 import { Header, Footer, Cart } from './components'
 
-import { setProducts, addToCart } from './store'
+import { setProducts, addToCart, closeCart, closeMenu } from './store'
 import { products } from './mock-data'
 
 function App() {
@@ -15,7 +15,12 @@ function App() {
     dispatch(setProducts(products))
     dispatch(addToCart(products[0]))
     dispatch(addToCart(products[1]))
-  })
+
+    globalHistory.listen(() => {
+      dispatch(closeCart())
+      dispatch(closeMenu())
+    })
+  }, [])
 
   return (
     <div className='App font-mono leading-loose'>

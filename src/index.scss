@@ -33,6 +33,17 @@ body {
   }
 }
 
+.slide-right {
+  right: -100%;
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+
+  &--active {
+    right: 0;
+    opacity: 100;
+  }
+}
+
 .container {
   padding-left: 1rem;
   padding-right: 1rem;

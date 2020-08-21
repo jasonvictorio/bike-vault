@@ -16,7 +16,11 @@ const Cart = () => {
   const handleRemoveCart = (cartId: number) => dispatch(deleteFromCart(cartId))
 
   return (
-    <div className={'w-screen h-screen left-0 fixed bg-white top-0 pt-16 pb-4 z-10' + (isCartOpen ? '' : ' hidden')}>
+    <div
+      className={`w-full h-screen slide-right fixed bg-white top-0 pt-16 pb-4 z-10 ${
+        isCartOpen && 'slide-right--active'
+      }`}
+    >
       <div className='container mx-auto flex flex-col h-full'>
         <div className='flex justify-between mb-3'>
           <h1 className='text-3xl leading-snug font-black'>Cart</h1>

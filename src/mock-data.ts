@@ -10,6 +10,8 @@ const rawProducts = [
     price: 2200,
     discountedPrice: 1800,
     categories: ['Mountain', 'Hardtail'],
+    description:
+      's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
     specifications: [
       {
         name: 'Frame',
@@ -22,6 +24,17 @@ const rawProducts = [
           'RockShox XC 30, coil spring, preload, TurnKey lockout, 46mm offset for 29" wheel, 100mm QR, 100mm travel ',
       },
       { name: 'Shifters', description: 'Shimano Altus M2010, 9 speed' },
+      { name: 'Front hub', description: 'Formula DC-20, alloy, 6-bolt, 5x100mm QR' },
+      { name: 'Rear hub', description: 'Formula DC-22, alloy, 6-bolt, Shimano 8/9/10 freehub, 135x5mm QR' },
+      { name: 'Rims', description: 'Bontrager Connection, double-wall, 32-hole, 20mm width, presta valve' },
+      { name: 'Shifters', description: 'Shimano Altus M2010, 9 speed' },
+      { name: 'Front hub', description: 'Formula DC-20, alloy, 6-bolt, 5x100mm QR' },
+      { name: 'Rear hub', description: 'Formula DC-22, alloy, 6-bolt, Shimano 8/9/10 freehub, 135x5mm QR' },
+      { name: 'Rims', description: 'Bontrager Connection, double-wall, 32-hole, 20mm width, presta valve' },
+      { name: 'Shifters', description: 'Shimano Altus M2010, 9 speed' },
+      { name: 'Front hub', description: 'Formula DC-20, alloy, 6-bolt, 5x100mm QR' },
+      { name: 'Rear hub', description: 'Formula DC-22, alloy, 6-bolt, Shimano 8/9/10 freehub, 135x5mm QR' },
+      { name: 'Rims', description: 'Bontrager Connection, double-wall, 32-hole, 20mm width, presta valve' },
     ],
   },
   {

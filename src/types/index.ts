@@ -14,6 +14,7 @@ export interface Product {
   image?: string
   discountedPrice?: number
   specifications?: Specification[]
+  description?: string
 }
 
 export interface CartItem {
